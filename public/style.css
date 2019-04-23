@@ -1,0 +1,13 @@
+
+#submit-form {
+width:80%;
+text-align: center;
+margin: 0 auto;
+}
+
+.custom-alert{
+    min-width: 350px;
+    display: flex;
+    justify-content: space-between;
+}
+ 

@@ -1,0 +1,51 @@
+<div class="container" style='background-image:url(Sky.jpg);background-size:cover'>
+    <h1>
+        <center>EAT DA BURGER!</center>
+
+    </h1>
+    <div class="row">
+        <div class="col text-center enter_section">
+            <form id="submit-form" action="/burgers/create" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="burger_name" placeholder="Enter burger name">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" id="text-enter-button" type="submit">SUBMIT</button>
+                    </div>
+                </div>
+            </form>
+            <p>Enter in a burger you would like to eat!</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm text-left" class="task">
+            <div class="row">
+                {{#each burger_data}}
+                {{#unless this.devoured}}
+                <form method="POST" action="/burgers/update?_method=PUT">
+                    <p class="alert alert-success custom-alert" role="alert">
+                        {{this.burger_name}}
+                        <button type="submit" class="btn btn-success">
+                            DEVOUR IT!</button>
+                    </p>
+
+                    <input type="hidden" name="burger_id" type="text" value={{this.id}}>
+                </form>
+                {{/unless}}
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="col-sm text-center" class="task">
+            {{#each burger_data}}
+            {{#if this.devoured}}
+            <p class="alert alert-warning" role="alert">{{this.burger_name}} eaten</p>
+            {{/if}}
+            {{/each}}
+
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+</div>
